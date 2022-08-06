@@ -21,6 +21,7 @@ services:
       # password for PostgreSQL. The default superuser is defined by the POSTGRES_USER environment variable.
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=app
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
 
   web:
     build:
@@ -37,6 +38,6 @@ services:
       - DATABASE_URL=postgresql://postgres:password@db:5432/app
       - DATABASE_TEST_URL=postgresql://postgres:password@db:5432/app_test
       - BACKEND_CORS_ORIGINS=["http://localhost:3000","http://localhost:8000"]
-      - 
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
 volumes:
   app-db-data:
